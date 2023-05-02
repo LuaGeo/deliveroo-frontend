@@ -25,8 +25,8 @@ const Cart = ({ cart, price, counter, setCounter, handleCart }) => {
               </button>
             </div>
             <div className="titleAndPrice">
-              <h5>{item}</h5>
-              {/* {!item ? <h5>{item}</h5> : setCounter(counter + 1)} */}
+              {/* <h5>{item}</h5> */}
+              {!item ? <h5>{item}</h5> : setCounter(counter + 1)}
               <h5>{price}</h5>
             </div>
           </div>
