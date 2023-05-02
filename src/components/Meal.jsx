@@ -1,8 +1,12 @@
-const Meal = ({ meal, setCart }) => {
+const Meal = ({ meal, setCart, setPrice, setCounter, counter, cart }) => {
   return (
     <article
       onClick={() => {
-        setCart(meal.title);
+        const cartCopy = [...cart];
+        cartCopy.push(meal.title);
+        setCart(cartCopy);
+        setPrice(meal.price + " €");
+        cart === meal.title ? setCounter(counter + 1) : setCounter(counter + 1);
       }}
     >
       <div className="mealText">

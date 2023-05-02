@@ -10,6 +10,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [cart, setCart] = useState([]);
+  const [price, setPrice] = useState([]);
+  const [counter, setCounter] = useState(0);
 
   const fetchData = async () => {
     const response = await axios.get(
@@ -59,6 +61,9 @@ function App() {
                             meal={meal}
                             cart={cart}
                             setCart={setCart}
+                            setPrice={setPrice}
+                            counter={counter}
+                            setCounter={setCounter}
                           />
                         );
                       })}
@@ -71,7 +76,14 @@ function App() {
             })}
           </section>
           <section className="colRight">
-            <Cart setCart={setCart} cart={cart} />;
+            <Cart
+              setCart={setCart}
+              cart={cart}
+              price={price}
+              setPrice={setPrice}
+              counter={counter}
+              setCounter={setCounter}
+            />
           </section>
         </div>
       </main>
