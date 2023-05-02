@@ -1,6 +1,8 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import logo from "./assets/imgs/logo-teal.svg";
+import Meal from "./components/Meal";
 
 function App() {
   const [data, setData] = useState({});
@@ -23,35 +25,44 @@ function App() {
     <span>En cours de chargement... </span>
   ) : (
     <div className="app">
-      <section className="restaurant">
-        <h1>{data.restaurant.name}</h1>
-        <h3>{data.restaurant.description}</h3>
+      <header>
+        <div className="container">
+          <img src={logo} alt="logo deliveroo" />
+        </div>
+      </header>
+      <section className="hero">
+        <div className="container">
+          <div className="restaurantInfo">
+            <h1>{data.restaurant.name}</h1>
+            <h3>{data.restaurant.description}</h3>
+          </div>
+          <img src={data.restaurant.picture} alt="" />
+        </div>
       </section>
-      {data.categories.map((item, index) => {
-        return (
-          <div key={index}>
-            <h2>{item.name}</h2>
-            <div className="categoryContainer" key={index}></div>
-            {item.meals.map((subItem, index) => {
-              return (
-                <div className="categoryContainer" key={index}>
-                  <div className="mealContainer">
-                    <div className="mealText">
-                      <h4>{subItem.title}</h4>
-                      <p>{subItem.description}</p>
-                      <h3 className="price">{subItem.price}</h3>
-                    </div>
-                    <div>
-                      <img src={subItem.picture} alt="" />
+
+      <main>
+        <div className="container">
+          <section className="colLeft">
+            {data.categories.map((category) => {
+              if (category.meals.length !== 0) {
+                return (
+                  <div key={category.name}>
+                    <h2>{category.name}</h2>
+                    <div className="categoryContainer">
+                      {category.meals.map((meal) => {
+                        return <Meal key={meal.id} meal={meal} />;
+                      })}
                     </div>
                   </div>
-                  //{" "}
-                </div>
-              );
+                );
+              } else {
+                return null;
+              }
             })}
-          </div>
-        );
-      })}
+          </section>
+          <section className="colRight"></section>
+        </div>
+      </main>
     </div>
   );
 }

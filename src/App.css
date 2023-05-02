@@ -1,16 +1,77 @@
-.categoryContainer {
-  width: 820px;
-  display: flex;
-  border: 1px solid red;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.mealContainer {
-  width: 400px;
+header {
+  border-bottom: rgb(221, 221, 221) 1px solid;
+}
+
+header img {
+  width: 154px;
+  height: 56px;
+}
+
+.hero .container {
   display: flex;
-  border: 1px solid black;
+  padding: 30px 0;
+  gap: 60px;
+  align-items: center;
+}
+
+.restaurantInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero img {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* ---MAIN--- */
+
+main {
+  background-color: #f3f5f5;
+}
+
+main .container {
+  padding: 30px 0;
+  display: flex;
+  gap: 30px;
+}
+
+main .colLeft {
+  width: 70.1%;
+}
+
+main .colRight {
+  height: 30px;
+  width: 30px;
+  width: 29.9%;
+  background-color: green;
+}
+
+.categoryContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+article {
+  height: 160px;
+  width: 48.75%;
+  display: flex;
   border-radius: 10px;
   padding: 10px;
-  margin-bottom: 54px;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 25px;
 }
 
 .mealText {
@@ -18,7 +79,7 @@
   flex-direction: column;
 }
 
-img {
+main img {
   width: 130px;
   height: 130px;
   border-radius: 5px;
@@ -28,6 +89,7 @@ h1 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 32px;
   font-weight: bold;
+  color: #2e3333;
   margin-bottom: 49px;
 }
 
@@ -41,21 +103,29 @@ h2 {
 h3 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 19px;
-  margin-bottom: 59px;
+  line-height: 28.8px;
+  color: #868a8a;
 }
 
 h4 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
   margin-bottom: 19px;
+  color: #2e3333;
 }
 
 p {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   margin-bottom: 27px;
+  color: #808484;
+  height: 30px;
+  overflow: hidden;
 }
 
 .price {
   margin-bottom: 0;
+  font-size: 17px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #808484;
 }
