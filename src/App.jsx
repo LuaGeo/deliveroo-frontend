@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "./assets/imgs/logo-teal.svg";
 import Meal from "./components/Meal";
+import Cart from "./components/Cart";
 
 function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  const [cart, setCart] = useState([]);
 
   const fetchData = async () => {
     const response = await axios.get(
@@ -50,7 +53,14 @@ function App() {
                     <h2>{category.name}</h2>
                     <div className="categoryContainer">
                       {category.meals.map((meal) => {
-                        return <Meal key={meal.id} meal={meal} />;
+                        return (
+                          <Meal
+                            key={meal.id}
+                            meal={meal}
+                            cart={cart}
+                            setCart={setCart}
+                          />
+                        );
                       })}
                     </div>
                   </div>
@@ -60,7 +70,9 @@ function App() {
               }
             })}
           </section>
-          <section className="colRight"></section>
+          <section className="colRight">
+            <Cart setCart={setCart} cart={cart} />;
+          </section>
         </div>
       </main>
     </div>

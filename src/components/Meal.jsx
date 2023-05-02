@@ -1,6 +1,10 @@
-const Meal = ({ meal }) => {
+const Meal = ({ meal, setCart }) => {
   return (
-    <article>
+    <article
+      onClick={() => {
+        setCart(meal.title);
+      }}
+    >
       <div className="mealText">
         <h4>{meal.title}</h4>
         <p>{meal.description}</p>
